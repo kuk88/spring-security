@@ -81,3 +81,4 @@ Thumbs.db
 #Node
 /node
 /node_modules
+/.mvn/
