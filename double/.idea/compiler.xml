@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="double" />
+        <module name="ui-token" />
+        <module name="resource" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="double" target="11" />
+      <module name="double" target="1.5" />
+      <module name="resource" target="11" />
+      <module name="ui-token" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

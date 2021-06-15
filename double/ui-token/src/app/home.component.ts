@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   templateUrl: './home.component.html'
@@ -11,7 +11,14 @@ export class HomeComponent {
   greeting: Greeting = new Greeting;
 
   constructor(private app: AppService, private http: HttpClient) {
-    http.get<Greeting>('http://localhost:9000').subscribe(data => this.greeting = data);
+    http.get<Token>('token').subscribe(data => {
+        const token: string = data.token;
+        console.log(token);
+        http.get<Greeting>('http://localhost:9000',
+                        { headers: new HttpHeaders().set('X-Auth-Token', token) })
+                        .subscribe(data => this.greeting = data);
+    });
+
   }
 
   authenticated() { return this.app.authenticated; }
@@ -21,4 +28,8 @@ export class HomeComponent {
 class Greeting{
   id: string = 'No id';
   content: string = 'No Content';
+}
+
+class Token{
+  token: string = ''
 }

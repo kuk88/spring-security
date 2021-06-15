@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/double.iml" filepath="$PROJECT_DIR$/double.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui-token/ui-token.iml" filepath="$PROJECT_DIR$/ui-token/ui-token.iml" />
     </modules>
   </component>
 </project>
