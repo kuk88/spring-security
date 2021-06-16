@@ -1,0 +1,12 @@
+security:
+  ignored:
+    - "*.bundle.*"
+  user:
+    password: password
+
+
+spring:
+  session:
+    store-type: Redis
+
+
