@@ -2,17 +2,15 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 
 import java.util.UUID;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.example.demo")
 @RestController
 public class ResourceApplication extends WebSecurityConfigurerAdapter {
 
@@ -28,10 +26,12 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
     http.cors().and().authorizeRequests().anyRequest().authenticated();
   }
 
-  @Bean
-  public HeaderHttpSessionStrategy sessionStrategy(){
-    return new HeaderHttpSessionStrategy();
-  }
+
+
+//  @Bean
+//  public HeaderHttpSessionStrategy sessionStrategy(){
+//    return new HeaderHttpSessionStrategy();
+//  }
 
 
   public static void main(String[] args) {
