@@ -1,0 +1,10 @@
+{
+  "realm": "demon",
+  "auth-server-url": "http://127.0.0.1:8090/auth/",
+  "ssl-required": "external",
+  "resource": "k-ui-client",
+  "public-client": true,
+  "verify-token-audience": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

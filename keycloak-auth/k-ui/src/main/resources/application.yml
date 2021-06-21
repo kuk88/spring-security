@@ -2,6 +2,8 @@ security:
   ignored:
     - "*.bundle.*"
 
+keycloak:
+  configurationFile: classpath:keycloak.json
 #keycloak:
 #  realm: demon
 #  auth-server-url: http://127.0.0.1:8090/auth/
@@ -12,11 +14,11 @@ security:
 #  use-resource-role-mappings: true
 #  confidential-port: 0
 
-spring:
-  security:
-    user:
-      password: password
-  session:
-    store-type: Redis
+#spring:
+#  security:
+#    user:
+#      password: password
+#  session:
+#    store-type: Redis
 
 
