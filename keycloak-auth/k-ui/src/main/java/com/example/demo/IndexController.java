@@ -49,7 +49,7 @@ public class IndexController {
     return "home.html" ;
   }
 
-  @RequestMapping(value = "/sso/logout", method = RequestMethod.GET)
+  @RequestMapping(value = "/sso/logout", method = RequestMethod.POST)
   public String logout() throws ServletException {
     request.logout();
     return "redirect:/";

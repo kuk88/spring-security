@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.session.SessionRegistryImpl;
+import org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 
@@ -16,7 +17,7 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
      */
     @Override
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
-        return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
+        return new NullAuthenticatedSessionStrategy();
     }
 
     /**
@@ -30,11 +31,11 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.logout().logoutSuccessUrl("/")
-                .and()
-                .authorizeRequests()
-                .antMatchers("/**").hasAnyAuthority("ROLE_CUSTOMER", "ROLE_MERCHANT")
-                .anyRequest().permitAll();
+        http.cors().and().authorizeRequests().antMatchers("/**").authenticated();
+//                .antMatchers("/api/customer/*").hasAnyAuthority("ROLE_CUSTOMER")
+//                .antMatchers("/api/merchant/*").hasAnyAuthority("ROLE_MERCHANT")
+//                .antMatchers("/api/*").authenticated()
+//                .anyRequest().permitAll();
 
     }
 }

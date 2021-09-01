@@ -9,5 +9,10 @@
 <form th:action="@{/sso/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
+
+<p><a id="any-resource" href="http://localhost:9000/api/greeting"> Any authenticated user can access this resource</a></p>
+<p><a id="customer-resource" href="http://localhost:9000/api/customer"> Any authenticated user with a role "ROLE_CUSTOMER" can access this resource</a></p>
+<p><a id="merchant-resource" href="http://localhost:9000/api/merchant"> Any authenticated user with a role "ROLE_MERCHANT" can access this resource</a></p>
+
 </body>
 </html>
